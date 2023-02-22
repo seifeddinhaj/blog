@@ -1,0 +1,27 @@
+.flex.items-center.justify-center.py-12.px-4.sm:px-6.lg:px-8.min-w-fit	
+  .relative.overflow-x-auto.shadow-md.sm:rounded-lg{class:'w-1/2'}
+    - if notice.present?
+      %p#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.inline-block= notice
+    .flex.justify-between.items-center
+      %h1.font-bold.text-4xl Categories
+      = link_to 'Ajouter', new_category_path, class: "ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+    %table.w-full.text-sm.text-left.text-gray-500.dark:text-gray-400.mt-5
+      %thead.text-xs.text-gray-700.uppercase.bg-gray-300.dark:bg-gray-700.dark:text-gray-400
+        %tr
+          %th.px-6.py-3{scope: "col"}
+            Id
+          %th.px-6.py-3{scope: "col"}
+            Nom
+          %th.px-6.py-3{scope: "col"}
+            Actions
+      %tbody
+        - @categories.each do |cat|
+          %tr.bg-white.border-b.dark:bg-gray-800.dark:border-gray-700.hover:bg-gray-50.dark:hover:bg-gray-600
+            %th.px-6.py-4.font-medium.text-gray-900.whitespace-nowrap.dark:text-white{scope: "row"}
+              = cat.id
+            %td.px-6.py-4
+              = cat.name
+            %td.px-6.py-4.flex
+              = link_to "Voir", cat, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium ml-2"
+              = link_to 'Editer', edit_category_path(cat), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium ml-2"
+              = button_to 'Supprimer', category_path(cat), method: :delete, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium ml-2"

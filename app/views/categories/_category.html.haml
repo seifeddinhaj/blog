@@ -1,0 +1,6 @@
+%div{id: "#{dom_id category}", class: 'mt-5'}
+  %input{readonly: "readonly", type: "text", value: category.name, class: 'relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm' }
+  - if action_name != "show"
+    = link_to "Show this category", category, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
+    = link_to 'Edit this category', edit_category_path(category), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium"
+    %hr.mt-6/
