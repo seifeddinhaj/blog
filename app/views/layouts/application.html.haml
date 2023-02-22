@@ -10,4 +10,8 @@
     = javascript_importmap_tags
   %body.h-full
     = render 'layouts/headers/header'
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
     = yield

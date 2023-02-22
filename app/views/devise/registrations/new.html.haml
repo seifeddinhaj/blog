@@ -1,0 +1,33 @@
+
+
+.flex.min-h-full.items-center.justify-center.py-12.px-4.sm:px-6.lg:px-8
+  .w-full.max-w-md.space-y-8
+    %div
+      %img.mx-auto.h-12.w-auto{alt: "Your Company", src: "https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"}/
+      %h2.mt-6.text-center.text-3xl.font-bold.tracking-tight.text-gray-900 Registration
+    = form_for(resource, as: resource_name, url: registration_path(resource_name),html:{class:'mt-8 space-y-6'}) do |f|
+
+      %input{name: "remember", type: "hidden", value: "true"}/
+      .-space-y-px.rounded-md.shadow-sm
+        %div
+          = f.email_field :email, autofocus: true, autocomplete: "email", class:'relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm', id:'email-address', placeholder: 'Email address'
+        %div
+          = f.label :password_field, class: 'sr-only'
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autocomplete: "new-password", class:'relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm', placeholder: 'Mot de passe'
+        %div
+          = f.label :password_confirmation, class: 'sr-only'
+          = f.password_field :password_confirmation, autocomplete: "new-password", class:'relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm', placeholder: 'Confirmation mot de passe'
+
+      .flex.items-center.justify-between
+        .flex.items-center
+          %input#remember-me.h-4.w-4.rounded.border-gray-300.text-indigo-600.focus:ring-indigo-500{name: "remember-me", type: "checkbox"}/
+          %label.ml-2.block.text-sm.text-gray-900{for: "remember-me"} Remember me
+      %div
+        %button.group.relative.flex.w-full.justify-center.rounded-md.border.border-transparent.bg-indigo-600.py-2.px-4.text-sm.font-medium.text-white.hover:bg-indigo-700.focus:outline-none.focus:ring-2.focus:ring-indigo-500.focus:ring-offset-2{type: "submit"}
+          %span.absolute.inset-y-0.left-0.flex.items-center.pl-3
+            %svg.h-5.w-5.text-indigo-500.group-hover:text-indigo-400{"aria-hidden" => "true", fill: "currentColor", viewbox: "0 0 20 20"}
+              %path{"clip-rule" => "evenodd", d: "M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z", "fill-rule" => "evenodd"}
+          Sign up

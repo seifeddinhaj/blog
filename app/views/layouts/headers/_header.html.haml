@@ -18,8 +18,16 @@
         %a.text-base.font-medium.text-gray-500.hover:text-gray-900{href: "#"} Pricing
         %a.text-base.font-medium.text-gray-500.hover:text-gray-900{href: "#"} Docs
       .hidden.items-center.justify-end.md:flex.md:flex-1.lg:w-0
-        %a.whitespace-nowrap.text-base.font-medium.text-gray-500.hover:text-gray-900{href: "#"} Sign in
-        %a.ml-8.inline-flex.items-center.justify-center.whitespace-nowrap.rounded-md.border.border-transparent.bg-indigo-600.px-4.py-2.text-base.font-medium.text-white.shadow-sm.hover:bg-indigo-700{href: "#"} Sign up
+        
+        - if !user_signed_in?
+          - if controller_name != 'sessions'
+            = link_to " Sign in", new_session_path(:user),class: 'whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900'
+          - if controller_name != 'registrations'
+            = link_to "Sign up", new_registration_path(:user), class: 'ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700'
+        - else
+          = button_to "Logout", destroy_user_session_path(), class: 'ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700', method: :delete
+
+
   /
     Mobile menu, show/hide based on mobile menu state.
     
@@ -31,4 +39,5 @@
     To: "opacity-0 scale-95"
   = render 'layouts/headers/header_mobile'
 
+  
   
