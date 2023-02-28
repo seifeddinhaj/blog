@@ -1,0 +1,22 @@
+= form_with(model: article, class: "contents", html:{ class:'mt-8 space-y-6' }) do |f|
+  - if article.errors.any?
+    #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
+      %h2
+        = pluralize(article.errors.count, "error")
+        interdit l'enregistrement de cet article :
+      %ul
+        - article.errors.each do |error|
+          %li= error.full_message
+  .rounded-md.shadow-sm
+    .mb-10
+      = f.label :name, class: 'sr-only'
+      = f.text_field :title, autofocus: true, autocomplete: "title", class:'relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm', placeholder: 'Titre'
+    .mb-10
+      = f.label :body
+      = f.text_area :body, data: { controller: "ckeditor", target: "editor" }, rows: 50, autocomplete: "title", class:'relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm', placeholder: 'Details'
+    .mb-10.flex.flex-col	
+      = f.label :category_id
+      = f.collection_select :category_id, Category.all, :id, :name, html:{class:'relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'}
+  %div
+    %button.group.relative.flex.w-full.justify-center.rounded-md.border.border-transparent.bg-indigo-600.py-2.px-4.text-sm.font-medium.text-white.hover:bg-indigo-700.focus:outline-none.focus:ring-2.focus:ring-indigo-500.focus:ring-offset-2{type: "submit"}
+      Valider

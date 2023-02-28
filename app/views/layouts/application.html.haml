@@ -7,7 +7,12 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "tailwind", "data-turbo-track": "reload"
+
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
+
+    = javascript_include_tag Ckeditor.cdn_url
+    %script{src: "https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"}
   %body.h-full
     = render 'layouts/headers/header'
     - if notice

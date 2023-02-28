@@ -30,6 +30,8 @@ gem "jbuilder"
 gem 'haml'
 gem "haml-rails"
 gem "devise"
+gem 'ckeditor'
+gem 'will_paginate', '~> 3.3'
 
 
 # Use Redis adapter to run Action Cable in production

@@ -1,0 +1,5 @@
+{
+    "imports": {
+      "@ckeditor/ckeditor5-build-balloon": "https://cdn.ckeditor.com/ckeditor5/30.0.0/balloon/ckeditor.js"
+    }
+  }
