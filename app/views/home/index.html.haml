@@ -1,3 +1,11 @@
-%div
-  %h1.font-bold.text-4xl Home#index
-  %p Find me in app/views/home/index.html.erb
+.flex.flex-wrap
+  - (1..10).each do |i|
+    .w-full.px-4.mb-8{class: "md:w-1/2 lg:w-1/3"}
+      .bg-white.rounded-lg.shadow-lg
+        %img.w-full.h-48.object-cover.rounded-t-lg{alt: "Blog post image", src: "https://picsum.photos/600/400?random=#{i}"}/
+        .px-6.py-4
+          %h2.text-xl.font-medium.text-gray-800.mb-2
+            Blog Post #{i}
+          %p.text-gray-600.leading-relaxed.mb-4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          %a.text-indigo-500.hover:text-indigo-700.font-medium{href: "#"} Read more →
+
