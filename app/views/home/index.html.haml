@@ -1,11 +1,11 @@
 .flex.flex-wrap
-  - (1..10).each do |i|
+  - @articles.each_with_index do |article, index|
     .w-full.px-4.mb-8{class: "md:w-1/2 lg:w-1/3"}
       .bg-white.rounded-lg.shadow-lg
-        %img.w-full.h-48.object-cover.rounded-t-lg{alt: "Blog post image", src: "https://picsum.photos/600/400?random=#{i}"}/
-        .px-6.py-4
+        %img.w-full.h-48.object-cover.rounded-t-lg{alt: "Blog post image", src: "https://picsum.photos/600/400?random=#{index}"}/
+        .px-6.py-4.min-h-fit		
           %h2.text-xl.font-medium.text-gray-800.mb-2
-            Blog Post #{i}
-          %p.text-gray-600.leading-relaxed.mb-4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          %a.text-indigo-500.hover:text-indigo-700.font-medium{href: "#"} Read more →
+            Blog Post #{index}
+          #ckeditorvalue.text-gray-600.leading-relaxed.mb-4{data: { controller: "ckeditor", target: 'editor', value: article.body}, style:'white-space: nowrap; overflow: hidden;text-overflow: ellipsis;'}
 
+          = link_to "Voir plus →", article_path(article), class: "text-indigo-500 hover:text-indigo-700 font-medium"
