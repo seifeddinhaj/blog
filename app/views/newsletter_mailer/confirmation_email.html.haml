@@ -1,0 +1,18 @@
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Confirmation d'abonnement à notre newsletter
+  %body
+    %div{style: "background-color: #f2f2f2; padding: 20px;"}
+      %h1{style: "color: #333333; text-align: center;"} Confirmation d'abonnement à notre newsletter
+      %p{style: "color: #333333;"} 
+        = "Bonjour #{@newsletter.email}" 
+      %p{style: "color: #333333;"} Nous sommes ravis de vous accueillir dans notre communauté de lecteurs. Nous vous confirmons que vous êtes maintenant abonné(e) à notre newsletter. Vous recevrez donc régulièrement des actualités, des offres exclusives et des conseils pratiques.
+      %p{style: "color: #333333;"} Notre newsletter est le meilleur moyen de rester informé(e) des dernières tendances de notre secteur, des nouveaux produits et services que nous proposons ainsi que des événements à venir. Nous espérons que vous apprécierez notre contenu et que cela vous sera utile dans votre vie professionnelle ou personnelle.
+      %p{style: "color: #333333;"} Si vous avez des questions ou des commentaires, n'hésitez pas à nous contacter à l'adresse e-mail [adresse e-mail de contact]. Nous sommes toujours heureux d'entendre nos abonnés et d'améliorer notre service.
+      %p{style: "color: #333333;"} Merci de votre confiance et de votre intérêt pour notre entreprise.
+      %p{style: "color: #333333;"} Cordialement,
+      %p{style: "color: #333333;"} [Nom de l'expéditeur]
+      %img{alt: "Logo de notre entreprise", src: "[lien vers votre logo]", style: "display: block; margin: 0 auto; max-width: 100%;"}/
+    = form_with(model: @newsletter, url: newsletter_url(@newsletter), method: :delete) do |form|
+      = form.submit 'Se désabonner', class: 'w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
