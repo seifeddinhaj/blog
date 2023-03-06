@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
+
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development? || ENV["MAILING_DELIVERY_METHOD"] == "letter_opener_web"
+
+
+  
+  resources :newsletters, only: [:create, :destroy]
   resources :articles do
     resources :comments
   end
