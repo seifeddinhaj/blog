@@ -13,7 +13,7 @@
 
     = javascript_include_tag Ckeditor.cdn_url
     %script{src: "https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"}
-  %body.h-full
+  %body.h-screen.flex.flex-col.justify-between
     = render 'layouts/headers/header'
     - if notice
       %p.w-full#notice.py-2.px-3.bg-green-50.mb-5.text-green-500.font-medium.rounded-lg.flex.items-center.justify-center= notice
@@ -28,5 +28,5 @@
           = render 'layouts/sidebars/sidebar'
         %div{class: "md:w-2/3"}
           = yield
-  = render 'layouts/footer/footer'
+    = render 'layouts/footer/footer'
 

@@ -26,12 +26,12 @@
           = form.hidden_field :user_id, value: current_user.id
         - else
           .mb-4
-            = form.label :author_name, "Your Name"
-            = form.text_field :author_name, class: "form-input block w-full"
+            = form.label :author_name, "Ton nom"
+            = form.text_field :author_name, class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
         .mb-4
-          = form.label :body, "Comment"
-          = form.text_area :body, class: "form-input block w-full"
-        = form.submit "Submit", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          = form.label :body, "Commentaire"
+          = form.text_area :body, class: "relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+        = form.submit "Valider", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
 /
   This example requires some changes to your config:
   

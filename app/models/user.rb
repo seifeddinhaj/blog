@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :comments
   validates :full_name, presence: true
+  enum role: { guest: 0, admin: 1 }
+
 end
