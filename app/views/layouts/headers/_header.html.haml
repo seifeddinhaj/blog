@@ -15,9 +15,11 @@
           %span.screen-reader
             Acceuil
 
-        - if user_signed_in?
+        - if user_signed_in? && current_user.admin?
           = link_to 'Categories', categories_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"
-          = link_to 'Ajouter blog', new_article_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"
+          = link_to 'Ajouter article', new_article_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"
+          = link_to 'Articles', articles_path, class: "text-base font-medium text-gray-500 hover:text-gray-900"
+
 
       .hidden.items-center.justify-end.md:flex.md:flex-1.lg:w-0
         
